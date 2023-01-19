@@ -7,7 +7,14 @@ const productSchema = mongoose.Schema({
   price: {
     type: Number,
   },
-  brand: {
+  category: {
+    type: String,
+  },
+
+  company: {
+    type: String,
+  },
+  userId: {
     type: String,
   },
 });
