@@ -67,6 +67,12 @@ app.post("/add", async (req, res) => {
   }
 });
 
+// delete product
+app.delete("/product/:id", async (req, res) => {
+  let result = await Product.deleteOne({ _id: req.params.id });
+  res.send(result);
+});
+
 app.listen(3000, (req, res) => {
   console.log("you app is running in 3000 port");
 });
