@@ -13,6 +13,10 @@ footer {
 
 }
 
+.invalidInput {
+  color: rgb(246, 95, 95) !important;
+}
+
 .link {
   text-decoration: none;
 }

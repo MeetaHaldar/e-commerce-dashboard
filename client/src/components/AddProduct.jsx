@@ -2,7 +2,6 @@ import React , { useState , useEffect}from "react"
 import {useNavigate} from "react-router-dom"
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-
 function AddProduct() {
     const [price , setPrice] =useState("");
     const [name , setName] =useState("");
@@ -39,31 +38,31 @@ console.log(result)
 <Form.Group className="mb-3">
 <Form.Label>Product Name : </Form.Label>
 <Form.Control type="text" placeholder="Enter name of the product" value={name} onChange={(e)=>setName(e.target.value)} />
-{error && !name && <Form.Text className="text-muted">
-         Product name missing
+{error && !name && <Form.Text className="text-muted invalidInput">
+   <span className="invalidInput"> Product name missing </span>      
         </Form.Text> }
 </Form.Group>
 <Form.Group className="mb-3">
 <Form.Label>Product Price : </Form.Label>
 <Form.Control type="text" placeholder="Enter price" value={price} onChange={(e)=>setPrice(e.target.value)} />
-{error && !price && <Form.Text className="text-muted">
-         Product price missing
+{error && !price && <Form.Text className="text-muted invalidInput">
+<span className="invalidInput"> Product price missing </span>  
         </Form.Text> }
 </Form.Group>
 
 <Form.Group className="mb-3">
 <Form.Label>Product Category : </Form.Label>
 <Form.Control type="text" placeholder="Enter category" value={category} onChange={(e)=>setCategory(e.target.value)} />
-{error && !category && <Form.Text className="text-muted">
-         Product category missing
+{error && !category && <Form.Text className="text-muted invalidInput">
+<span className="invalidInput"> Product category missing </span>  
         </Form.Text> }
 </Form.Group>
 
 <Form.Group className="mb-3">
 <Form.Label>Product Company : </Form.Label>
 <Form.Control type="text" placeholder="Enter company name" value={company} onChange={(e)=>setCompany(e.target.value)} />
-{error && !company && <Form.Text className="text-muted">
-         Product name company
+{error && !company && <Form.Text className="text-muted invalidInput">
+<span className="invalidInput"> Product company name is  missing </span>  
         </Form.Text> }
 </Form.Group>
 <Button variant="primary"  onClick={addproduct}>
