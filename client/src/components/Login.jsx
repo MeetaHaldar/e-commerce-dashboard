@@ -60,7 +60,7 @@ else{
         <Form.Control type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
       </Form.Group>
       <Button variant="primary"  onClick={handleLogin}>
-        Submit
+        Login 
       </Button>
     </Form>
         </div>

@@ -21,6 +21,7 @@ export default function Signup(){
     const navigate = useNavigate()
 
     const dataCollect = async()=>{
+        if(name !=null&&email!=null&&password!=null&&name !=""&&email!=""&&password!=""){
         // console.log("helllothere",name , email , password)
         let  result =  await fetch("http://localhost:3000/register" , {
           method :"post",
@@ -31,11 +32,20 @@ export default function Signup(){
         })
         result = await result.json()
         console.log(result)
+        if(result.email || result.name || !result.password ){
         localStorage.setItem("User"  , JSON.stringify(result.result))
-        localStorage.setItem("token"  , JSON.stringify(result.auth))
-        if(result.result){
+        localStorage.setItem("token"  , JSON.stringify(result.auth)) 
           navigate("/")
         }
+        else {
+          alert("please enter correct details")
+  navigate("/signup")
+
+        }
+      }
+      else{
+        alert('Please enter Value');
+      }
     }
 
     return(
@@ -60,7 +70,7 @@ export default function Signup(){
         <Form.Control type="password" value={password} onChange={(e)=>setPassword(e.target.value)} placeholder="Password" />
       </Form.Group>
       <Button variant="primary"  onClick={dataCollect}>
-        Submit
+        Sign Up
       </Button>
     </Form>
         </div>

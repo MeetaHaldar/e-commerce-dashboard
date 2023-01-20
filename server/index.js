@@ -17,23 +17,27 @@ app.get("/", (req, res) => {
 });
 //register user
 app.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-  let data = new User({
-    name: name,
-    email: email,
-    password: password,
-  });
-  try {
-    let result = await data.save();
-    result = result.toObject();
-    delete result.password;
-    jwt.sign({ result }, jwt_key, { expiresIn: "4h" }, (err, token) => {
-      if (err) {
-        res.send({ message: err.message });
-      } else res.send({ result, auth: token });
+  if (req.body.name && req.body.email && req.body.password) {
+    const { name, email, password } = req.body;
+    let data = new User({
+      name: name,
+      email: email,
+      password: password,
     });
-  } catch (err) {
-    res.json({ message: err.message });
+    try {
+      let result = await data.save();
+      result = result.toObject();
+      delete result.password;
+      jwt.sign({ result }, jwt_key, { expiresIn: "4h" }, (err, token) => {
+        if (err) {
+          res.send({ message: err.message });
+        } else res.send({ result, auth: token });
+      });
+    } catch (err) {
+      res.json({ message: err.message });
+    }
+  } else {
+    res.json({ message: "each field is required" });
   }
 });
 
