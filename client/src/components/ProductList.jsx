@@ -1,6 +1,9 @@
 import React  , {useState , useEffect}from 'react'
 import Table from 'react-bootstrap/Table';
 import { Link } from 'react-router-dom';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 
 function ProductList() {
     const [products , setProducts]  = useState([])
@@ -21,9 +24,35 @@ function ProductList() {
         alert("product has been deleted")
         getProducts();
     }
+    const searchHandle = async(event)=>{
+        let key = event.target.value
+        if(key)
+        {
+            let result = await fetch(`http://localhost:3000/search/${key}`);
+            result = await result.json()
+            if(result) setProducts(result)
+        }
+        else {
+            getProducts()
+        }
+  
+
+
+
+    }
   return (
     <div>
         <h2>Product List</h2>
+        <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+              onChange={searchHandle}
+            />
+            <Button variant="outline-success">Search</Button>
+          </Form>
           <Table striped bordered hover size="sm">
       <thead>
         <tr>
@@ -37,7 +66,7 @@ function ProductList() {
         </tr>
       </thead>
       <tbody>
-            {products.map((item, index) =>
+            { products.length > 0 ? products.map((item, index) =>
                 <tr key={index}>
                 <td>{index+1}</td>
                 <td>{item.name}</td>
@@ -51,8 +80,8 @@ function ProductList() {
 
                 </tr>
 
-                )}
-
+                ) : <tr><td colSpan={6} className="center">No result found</td></tr>
+            }
       </tbody>
     </Table>
     </div>

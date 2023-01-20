@@ -5,9 +5,9 @@ const cors = require("cors");
 const Product = require("./model/Product");
 const User = require("./model/User");
 const { findOne } = require("./model/User");
-
+const jwt = require("jsonwebtoken");
 const app = express();
-
+require("dotenv").config();
 app.use(express.json());
 app.use(cors());
 
@@ -32,7 +32,14 @@ app.post("/login", async (req, res) => {
   if (req.body.email && req.body.password) {
     let user = await User.findOne(req.body).select("-password");
     if (user) {
-      res.send(user);
+      jwt.sign(
+        { user },
+        process.env.SECRET_STRING,
+        { expiresIn: "4h" },
+        (err, token) => {
+          res.send({ user, token: token });
+        }
+      );
     } else {
       res.json({ message: "user not found" });
     }
@@ -85,6 +92,19 @@ app.put("/product/:id", async (req, res) => {
     { _id: req.params.id },
     { $set: req.body }
   );
+  res.send(result);
+});
+
+// search api
+app.get("/search/:key", async (req, res) => {
+  let result = await Product.find({
+    $or: [
+      { name: { $regex: req.params.key } },
+      { company: { $regex: req.params.key } },
+      { category: { $regex: req.params.key } },
+    ],
+  });
+
   res.send(result);
 });
 
