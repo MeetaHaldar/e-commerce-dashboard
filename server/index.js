@@ -40,7 +40,15 @@ app.post("/login", async (req, res) => {
     res.json({ message: "user is not present" });
   }
 });
-
+//list products
+app.get("/getProducts", async (req, res) => {
+  const products = await Product.find();
+  if (products.length > 0) {
+    res.send(products);
+  } else {
+    res.send("No product found");
+  }
+});
 //add product
 app.post("/add", async (req, res) => {
   const { name, category, price, company, userId } = req.body;
