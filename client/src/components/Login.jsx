@@ -19,7 +19,7 @@ export default function Login() {
   const navigate = useNavigate()
 
   const handleLogin =  async()=>{
-console.log(email , password)
+// console.log(email , password)
 let  result =  await fetch("http://localhost:3000/login" , {
   method :"post",
   body : JSON.stringify({ email , password}) , 
@@ -28,9 +28,11 @@ let  result =  await fetch("http://localhost:3000/login" , {
   }
 })
 result = await result.json()
-console.log(result)
-if(result.email){
-localStorage.setItem("User"  , JSON.stringify(result))
+// console.log(result)
+if(result.auth){
+localStorage.setItem("User"  , JSON.stringify(result.user))
+localStorage.setItem("token"  , JSON.stringify(result.auth))
+
   navigate("/")
 }
 else{

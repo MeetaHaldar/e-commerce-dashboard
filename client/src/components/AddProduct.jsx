@@ -24,7 +24,8 @@ const [error , setError] = useState(false)
   method :"post",
   body : JSON.stringify({ name , category , price , company , userId}) , 
   headers :{
-    'content-type' :'application/json'
+    'content-type' :'application/json',
+    authorization :JSON.parse(localStorage.getItem('token'))
   }
 
 })

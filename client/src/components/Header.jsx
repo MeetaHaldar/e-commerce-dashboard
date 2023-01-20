@@ -23,7 +23,7 @@ const logout =()=>{
               <Link to="/add" className="text-light link">Add product</Link>
               <Link to="/update" className="text-light link">Update Product</Link>
               <Link to="/profile" className="text-light link">Profile</Link> 
-              <Link onClick={logout} to="/signup" className="text-light link">Logout {JSON.parse(auth).name}</Link>
+              <Link onClick={logout} to="/signup" className="text-light link">Logout ({JSON.parse(auth).name})</Link>
             </> : <> <Link to="/login" className="text-light link">login</Link>  <Link to="/signup" className="text-light link">SignUp</Link> </> 
           }
                          
