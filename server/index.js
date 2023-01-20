@@ -43,11 +43,13 @@ app.post("/login", async (req, res) => {
 
 //add product
 app.post("/add", async (req, res) => {
-  const { name, price, brand } = req.body;
-  const data = await new Product({
+  const { name, category, price, company, userId } = req.body;
+  const data = new Product({
     name: name,
+    category: category,
     price: price,
-    brand: brand,
+    company: company,
+    userId: userId,
   });
   try {
     const result = await data.save();
