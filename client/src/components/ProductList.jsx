@@ -1,5 +1,6 @@
 import React  , {useState , useEffect}from 'react'
 import Table from 'react-bootstrap/Table';
+import { Link } from 'react-router-dom';
 
 function ProductList() {
     const [products , setProducts]  = useState([])
@@ -44,7 +45,9 @@ function ProductList() {
 
                 <td>{item.category}</td>
                 <td>{item.company}</td>
-                <td><button  onClick={()=>deleteProduct(item._id)}>Delete</button></td>
+                <td><button  onClick={()=>deleteProduct(item._id)}>Delete</button>
+                <Link to={"update/" +item._id}>Update</Link>
+                </td>
 
                 </tr>
 
