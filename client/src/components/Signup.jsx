@@ -32,7 +32,7 @@ export default function Signup(){
         result = await result.json()
         console.log(result)
         localStorage.setItem("User"  , JSON.stringify(result))
-        if(result){
+        if(result.name){
           navigate("/")
         }
     }

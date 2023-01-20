@@ -12,6 +12,14 @@ function ProductList() {
         result = await result.json()
         setProducts(result)
     }
+    const deleteProduct =async (id)=>{
+        let result = await  fetch(`http://localhost:3000/product/${id}` ,{
+            method :"Delete"
+        })
+        result = await result.json()
+        alert("product has been deleted")
+        getProducts();
+    }
   return (
     <div>
         <h2>Product List</h2>
@@ -23,6 +31,8 @@ function ProductList() {
           <th>price</th>
           <th>category</th>
           <th>company</th>
+          <th>Operations</th>
+
         </tr>
       </thead>
       <tbody>
@@ -34,6 +44,8 @@ function ProductList() {
 
                 <td>{item.category}</td>
                 <td>{item.company}</td>
+                <td><button  onClick={()=>deleteProduct(item._id)}>Delete</button></td>
+
                 </tr>
 
                 )}
