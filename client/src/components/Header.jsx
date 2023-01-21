@@ -22,11 +22,11 @@ const logout =()=>{
               auth ? 
               <>
               <div className={active ? "d-flex nav-links-container nav-active" : " d-flex nav-links-container"}>
-                <Link to="/" className="text-light link px-4 fw-semibold  nav-links" ><span className="nav-link-hover active">Product</span></Link>  
-                <Link to="/add" className="text-light link px-4 fw-semibold  nav-links"><span className="nav-link-hover">Add product</span></Link>
-                <Link to="/update" className="text-light link px-4 fw-semibold  nav-links"><span className="nav-link-hover">Update Product</span></Link>
-                <Link to="/profile" className="text-light link px-4 fw-semibold nav-links"><span className="nav-link-hover">Profile</span></Link> 
-                <Link onClick={logout} to="/signup" className="text-light link px-4 fw-semibold nav-links"><span className="nav-link-hover">Logout</span></Link>
+                <Link to="/" className="text-light link px-4 fw-semibold  nav-links" onClick={() => {setActive(!active)}}><span className="nav-link-hover active">Product</span></Link>  
+                <Link to="/add" className="text-light link px-4 fw-semibold  nav-links" onClick={()=>{setActive(!active)}}><span className="nav-link-hover">Add product</span></Link>
+                <Link to="/update" className="text-light link px-4 fw-semibold  nav-links" onClick={()=>{setActive(!active)}}><span className="nav-link-hover">Update Product</span></Link>
+                <Link to="/profile" className="text-light link px-4 fw-semibold nav-links" onClick={()=>{setActive(!active)}}><span className="nav-link-hover">Profile</span></Link> 
+                <Link onClick={logout} to="/signup" className="text-light link px-4 fw-semibold nav-links hide-nav-logout"><span className="nav-link-hover">Logout</span></Link>
 
               </div> 
               <div className="d-flex"> 
@@ -39,7 +39,10 @@ const logout =()=>{
               </div>
               </>
               : 
-              <Container> <Link to="/login" className="text-light link">login</Link>  <Link to="/signup" className="text-light link">SignUp</Link> </Container> 
+              <Container className="d-flex justify-content-end"> 
+                <Link to="/login" className="text-light link px-4">login</Link>  
+                <Link to="/signup" className="text-light link px-4">SignUp</Link> 
+              </Container> 
             }       
           </div>
       </Navbar>

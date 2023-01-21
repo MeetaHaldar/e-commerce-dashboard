@@ -10,7 +10,7 @@ footer {
   position: absolute;
   bottom: 0;
   text-align: center;
-  margin: auto;
+  margin: 2% auto 0 auto;
   width: 100%;
   background-color: rgb(97, 97, 238);
 
@@ -105,6 +105,11 @@ footer p{
 
 
 /* MEDIA QUERIES */
+@media (min-width : 761px) {
+  .hide-nav-logout{
+    display: none;
+  }
+}
 
 @media (max-width : 957px) {
   .nav-links{
