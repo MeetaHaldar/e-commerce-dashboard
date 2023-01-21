@@ -1,3 +1,6 @@
+html{
+  min-width: 568px;
+}
 * {
   padding: 0;
   margin: 0;
@@ -5,7 +8,7 @@
 
 footer {
   position: absolute;
-  bottom: 10px;
+  bottom: 0;
   text-align: center;
   margin: auto;
   width: 100%;
@@ -81,6 +84,8 @@ form {
 
 /* Footer */
 footer{
+  width: 100vw;
+  min-width: 568px;
   left : 0;
   align-items: center;
   background: #0D6EFD;
@@ -91,6 +96,13 @@ footer{
 footer p{
   margin : 0 !important; 
 }
+
+/* Product List */
+.product-list-container{
+  width: 75%;
+}
+
+
 
 /* MEDIA QUERIES */
 
@@ -114,15 +126,13 @@ footer p{
     padding : 0.25rem 0.5rem !important; 
     font-size: 0.875rem !important;
     border-radius: 0.25rem !important;
+    margin-bottom: 2%;
   }
   .ham-burger{
     display: block;
   }
   .nav-links-container{
-    /* display: none; */
     background-color: #0D6EFD;
-    /* opacity: 0.7; */
-    /* width: 30%; */
     width: 40%;
     height: 100vh;
     flex-direction: column;
@@ -130,7 +140,6 @@ footer p{
     align-items: flex-end;
     position: absolute;
     z-index: 10;
-    /* right: 7%; */
     right: -110%;
     top: 50px;
     padding: 2% 4%;
@@ -146,8 +155,23 @@ footer p{
   .hide-till-761-px{
     display: none;
   }
+  /* product list */
+  /* .heading-2{
+    font-size: 1.3rem;
+    font-weight: 600;
+  } */
+  /* Product list heading and the search bar */
+  .product-list-items{
+    flex-direction: column;
+    align-items: center;
+  }
+  .product-search-form{
+    flex-direction: column;
+  }
+  .product-search-box{
+    margin-bottom: 2px;
+  }
 }
-
 
 /* utils */
 .z-index-100{
