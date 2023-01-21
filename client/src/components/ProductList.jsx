@@ -53,18 +53,20 @@ function ProductList() {
 
     }
   return (
-    <div>
-        <h2>Product List</h2>
-        <Form className="d-flex">
-            <Form.Control
-              type="search"
-              placeholder="Search"
-              className="me-2"
-              aria-label="Search"
-              onChange={searchHandle}
-            />
-            <Button variant="outline-success">Search</Button>
-          </Form>
+    <div className='product-list-container w-75 text-center mt-5 mx-auto'>
+       <div className='d-flex justify-content-between mb-4'>
+          <h2 className='fw-semibold heading-2'>Product List</h2>
+          <Form className="d-flex">
+              <Form.Control
+                type="search"
+                placeholder="Search Product"
+                className="me-2"
+                aria-label="Search"
+                onChange={searchHandle}
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+       </div>
           <Table striped bordered hover size="sm">
       <thead>
         <tr>
@@ -78,22 +80,23 @@ function ProductList() {
         </tr>
       </thead>
       <tbody>
-            { products.length > 0 ? products.map((item, index) =>
-                <tr key={index}>
+          { products.length > 0 ? products.map((item, index) =>
+              <tr key={index}>
                 <td>{index+1}</td>
                 <td>{item.name}</td>
                 <td>{item.price}</td>
 
                 <td>{item.category}</td>
                 <td>{item.company}</td>
-                <td><button  onClick={()=>deleteProduct(item._id)}>Delete</button>
-                <Link to={"update/" +item._id}>Update</Link>
+                <td>
+                <Link to={"update/" +item._id} className="button-size btn btn-outline-primary ">Update</Link>
+                <button className='button-size btn btn-danger mx-2 ' onClick={()=>deleteProduct(item._id)}>Delete</button>
                 </td>
 
-                </tr>
+              </tr>
 
-                ) : <tr><td colSpan={6} className="center">No result found</td></tr>
-            }
+              ) : <tr><td colSpan={6} className="center">No result found</td></tr>
+          }
       </tbody>
     </Table>
     </div>

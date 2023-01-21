@@ -29,3 +29,127 @@ form {
 .center {
   text-align: center;
 }
+
+/* NAVBAR */
+/* .nav-link-hover{
+  transition: 0.3s ease-out;
+  border-width: 0;
+} */
+
+
+
+/* .active{
+  border-bottom: 2px solid #fff;
+  transition: 0.4s ease-out;
+} */
+
+.nav-links-container{
+  justify-content : center ;
+}
+
+/* Menu icon */
+.ham-burger {
+  display: none;
+  /* position: absolute; */
+  right: 5%;
+  cursor: pointer;
+}
+
+.ham-burger:hover{
+  cursor: pointer;
+}
+.ham-open .line-1 {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.ham-open .line-2 {
+  width: 0;
+}
+
+.ham-open .line-3 {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.lines {
+  width: 30px;
+  height: 3px;
+  background: #fff;
+  display: block;
+  margin: 5px 0;
+  transition: transform 1s, width 0.5s;
+}
+
+/* Footer */
+footer{
+  left : 0;
+  align-items: center;
+  background: #0D6EFD;
+  color : #fff;
+  height : 40px;
+}
+
+footer p{
+  margin : 0 !important; 
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width : 957px) {
+  .nav-links{
+    font-size: 0.9rem;
+    padding : 0;
+  }
+  .hide-till-957-px{
+    display: none;
+  }
+  /* product list */
+  .product-list-container{
+    /* margin: 0 !important; */
+    width: 100% !important;
+  }
+}
+
+@media (max-width : 761px) {
+  .button-size{
+    padding : 0.25rem 0.5rem !important; 
+    font-size: 0.875rem !important;
+    border-radius: 0.25rem !important;
+  }
+  .ham-burger{
+    display: block;
+  }
+  .nav-links-container{
+    /* display: none; */
+    background-color: #0D6EFD;
+    /* opacity: 0.7; */
+    /* width: 30%; */
+    width: 40%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: start !important;
+    align-items: flex-end;
+    position: absolute;
+    z-index: 10;
+    /* right: 7%; */
+    right: -110%;
+    top: 50px;
+    padding: 2% 4%;
+    transition: 0.4s ease-in-out;
+  }
+  .nav-active{
+    right : 0;
+  }
+  .nav-links{
+    margin: 3% 0;
+    font-size: 1rem;
+  }
+  .hide-till-761-px{
+    display: none;
+  }
+}
+
+
+/* utils */
+.z-index-100{
+  z-index: 100;
+}

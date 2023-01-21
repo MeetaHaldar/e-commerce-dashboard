@@ -1,8 +1,8 @@
 import React from "react"
 export default function Footer (){
     return(
-        <footer>
-            <p>e commerce footer </p>
+        <footer className="w-100 position-absolute bottom-0 d-flex justify-content-center">
+            <p>&copy;E-Commerce</p>
         </footer>
     )
 }
