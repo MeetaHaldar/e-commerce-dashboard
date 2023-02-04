@@ -11,7 +11,7 @@ const app = express();
 const jwt_key = "hellothere";
 app.use(express.json());
 app.use(cors());
-
+const port = process.env.PORT || 3000;
 app.get("/", (req, res) => {
   res.json({ message: "hello there" });
 });
@@ -135,6 +135,6 @@ function verifyToken(req, res, next) {
   }
 }
 
-app.listen(process.env.PORT || 3000, (req, res) => {
+app.listen(port, (req, res) => {
   console.log("you app is running in 3000 port");
 });
