@@ -135,6 +135,6 @@ function verifyToken(req, res, next) {
   }
 }
 
-app.listen(3000, (req, res) => {
+app.listen(process.env.PORT || 3000, (req, res) => {
   console.log("you app is running in 3000 port");
 });
