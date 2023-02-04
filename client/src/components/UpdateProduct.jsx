@@ -14,7 +14,7 @@ function UpdateProduct() {
   }, []);
   const getProductDetails = async (req, res) => {
     // console.log(params)
-    let result = await fetch(`https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app//product/${params.id}`, {
+    let result = await fetch(`https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app/product/${params.id}`, {
       headers: {
         authorization: JSON.parse(localStorage.getItem("token")),
       },
