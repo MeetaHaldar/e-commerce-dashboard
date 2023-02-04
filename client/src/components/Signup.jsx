@@ -28,7 +28,7 @@ export default function Signup() {
       password != ""
     ) {
       // console.log("helllothere",name , email , password)
-      let result = await fetch("http://localhost:3000/register", {
+      let result = await fetch("https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app/register", {
         method: "post",
         body: JSON.stringify({ name, email, password }),
         headers: {
