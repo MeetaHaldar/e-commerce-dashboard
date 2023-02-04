@@ -18,7 +18,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     // console.log(email , password)
-    let result = await fetch("http://localhost:3000/login", {
+    let result = await fetch("https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app/login", {
       method: "post",
       body: JSON.stringify({ email, password }),
       headers: {
