@@ -12,7 +12,7 @@ function ProductList() {
 
   }, [])
   const getProducts = async () => {
-    let result = await fetch("http://localhost:3000/getProducts", {
+    let result = await fetch("https://e-commerce-dashboard-fct9u6whb-meetahaldar.vercel.app/getProducts", {
       headers: {
         authorization: JSON.parse(localStorage.getItem('token'))
       }
@@ -21,7 +21,7 @@ function ProductList() {
     setProducts(result)
   }
   const deleteProduct = async (id) => {
-    let result = await fetch(`https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app//product/${id}`, {
+    let result = await fetch(`https://e-commerce-dashboard-fct9u6whb-meetahaldar.vercel.app/product/${id}`, {
       method: "Delete",
       headers: {
         authorization: JSON.parse(localStorage.getItem('token'))
@@ -34,7 +34,7 @@ function ProductList() {
   const searchHandle = async (event) => {
     let key = event.target.value
     if (key) {
-      let result = await fetch(`https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app//search/${key}`,
+      let result = await fetch(`https://e-commerce-dashboard-fct9u6whb-meetahaldar.vercel.app/search/${key}`,
         {
           headers: {
             authorization: JSON.parse(localStorage.getItem('token'))

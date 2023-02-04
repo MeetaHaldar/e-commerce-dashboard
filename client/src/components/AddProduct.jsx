@@ -17,7 +17,7 @@ function AddProduct() {
       setError(true);
       return false;
     }
-    let result = await fetch("https://e-commerce-dashboard-otafycm29-meetahaldar.vercel.app/add", {
+    let result = await fetch("https://e-commerce-dashboard-fct9u6whb-meetahaldar.vercel.app/add", {
       method: "post",
       body: JSON.stringify({ name, category, price, company, userId }),
       headers: {
