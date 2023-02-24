@@ -87,7 +87,7 @@ app.post("/add", verifyToken, async (req, res) => {
 
 // delete product
 app.delete("/product/:id", verifyToken, async (req, res) => {
-  let result = await Product.deleteOne({ _id: req.params.id });
+  let result = await Product.findOneAndDelete({ _id: req.params.id });
   res.send(result);
 });
 // get single product
