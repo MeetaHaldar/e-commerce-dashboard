@@ -22,7 +22,7 @@ function ProductList() {
   }
   const deleteProduct = async (id) => {
     console.log(id);
-    let result = await fetch(`https://e-commerce-dashboard-swart.vercel.app/${id}`, {
+    let result = await fetch(`https://e-commerce-dashboard-swart.vercel.app/product/${id}`, {
       method: "Delete",
       headers: {
         authorization: JSON.parse(localStorage.getItem('token'))
